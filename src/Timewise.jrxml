@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e3e900a2-073e-416d-b7d0-f00f933ebfc6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     BOOKING."DT" AS BOOKING_DT,
+     BOOKING."TFROM" AS BOOKING_TFROM,
+     BOOKING."TTO" AS BOOKING_TTO,
+     BOOKING."VEHICLE_TYPE" AS BOOKING_VEHICLE_TYPE,
+     BOOKING."VEHICLENO" AS BOOKING_VEHICLENO,
+     BOOKING."AREA" AS BOOKING_AREA
+FROM
+     "DB2"."BOOKING" BOOKING]]>
+	</queryString>
+	<field name="BOOKING_DT" class="java.sql.Date"/>
+	<field name="BOOKING_TFROM" class="java.lang.String"/>
+	<field name="BOOKING_TTO" class="java.lang.String"/>
+	<field name="BOOKING_VEHICLE_TYPE" class="java.lang.String"/>
+	<field name="BOOKING_VEHICLENO" class="java.lang.String"/>
+	<field name="BOOKING_AREA" class="java.lang.String"/>
+	<group name="BOOKING_TFROM">
+		<groupExpression><![CDATA[$F{BOOKING_TFROM}]]></groupExpression>
+		<groupHeader>
+			<band height="40">
+				<textField>
+					<reportElement style="SubTitle" x="47" y="13" width="506" height="24" forecolor="#333333" uuid="b92c8637-4979-40cb-9109-329e3851eec4"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{BOOKING_TFROM}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement mode="Opaque" x="0" y="13" width="36" height="24" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="e3f8670e-848e-4a20-8cda-4b8f9d12a5e0"/>
+				</rectangle>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<group name="BOOKING_TTO">
+		<groupExpression><![CDATA[$F{BOOKING_TTO}]]></groupExpression>
+		<groupHeader>
+			<band height="30">
+				<textField>
+					<reportElement style="SubTitle" x="0" y="4" width="460" height="20" uuid="a1dd1cae-4af3-4e09-ab57-9c5cf81e61c4"/>
+					<textElement>
+						<font size="16" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{BOOKING_TTO}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="-20" y="0" width="595" height="64" uuid="3526b5be-a4a0-417d-ada9-0d99443a3514"/>
+				<imageExpression><![CDATA["wood.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="5" width="263" height="33" uuid="d8725bd7-17f0-4a03-8800-929bbae2fc75"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Time Wise Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="16bb4311-5b77-4d0a-b59e-6bf9e9c8e42b"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="138" height="15" uuid="73faaa42-b350-47b6-826b-94c14408f604"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="138" y="19" width="138" height="15" uuid="d216cb54-b572-4967-84a1-b04f72b5ee4e"/>
+				<text><![CDATA[Type of Vehicle]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="276" y="19" width="138" height="15" uuid="388b4d71-6481-4cae-a186-d4f636c2ed1c"/>
+				<text><![CDATA[Vehicle No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="414" y="19" width="138" height="15" uuid="726c7d74-b71a-4b0b-9de5-28cc68c0d0e8"/>
+				<text><![CDATA[Area]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="5b5a1015-284b-4f4f-a473-6863ee6bb137"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="138" height="15" uuid="a1fb4d3c-75bc-4179-a5db-b2e7336d68d4"/>
+				<textFieldExpression><![CDATA[$F{BOOKING_DT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="138" y="0" width="138" height="15" uuid="cfa38b5f-94fa-4955-9395-e952e1c38546"/>
+				<textFieldExpression><![CDATA[$F{BOOKING_VEHICLE_TYPE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="276" y="0" width="138" height="15" uuid="7225807d-371d-4c07-a370-24a8389d8a1f"/>
+				<textFieldExpression><![CDATA[$F{BOOKING_VEHICLENO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="414" y="0" width="138" height="15" uuid="5356d50d-9b64-4aa7-88bd-e6fdca12b1e9"/>
+				<textFieldExpression><![CDATA[$F{BOOKING_AREA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="75ffb033-c3ef-4016-997e-858282238591"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="a12d4f7d-c8e2-48a5-9327-1e391722e4d6"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="a3d65762-ad4f-4712-9139-e48e6f1364bb"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="33d1a624-1b4f-41b1-bfd6-a9dcaaa7b65e"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
